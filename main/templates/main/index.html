@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<section class="hero container">
+    <h1>Rubachandran Portfolio 🚀</h1>
+    <p>
+        Hi, I am Rubachandran.<br>
+        I build websites using Django & Python.
+    </p>
+    <p style="margin-top: 1rem;">
+        {% if resume %}
+        <a href="{{ resume.file.url }}" download>Download Resume</a>
+        {% endif %}
+    </p>
+</section>
+
+<section id="projects" class="container">
+    <h2>My Projects</h2>
+    <ul>
+        {% for project in projects %}
+        <li>
+            <strong>{{ project.title }}</strong><br>
+            {{ project.description }}<br>
+            <a href="{{ project.github_link }}" target="_blank">GitHub</a>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}
